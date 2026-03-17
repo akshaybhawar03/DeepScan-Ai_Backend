@@ -44,13 +44,14 @@ FRONTEND_URL = os.environ.get("FRONTEND_URL", "")
 allowed_origins = [
     "http://localhost:5500", "http://127.0.0.1:5500",
     "http://localhost:3000", "http://127.0.0.1:3000",
+    "http://localhost:5000", "http://127.0.0.1:5000",
     "http://localhost:8080",
+    "https://deep-scan-ai-frontend.vercel.app",
+    "https://deepscan-ai-frontend.vercel.app",
+    "https://deepscan-ai-frontend-akshaybhawar03s-projects.vercel.app",
 ]
 if FRONTEND_URL:
     allowed_origins.append(FRONTEND_URL)
-# Allow all *.vercel.app subdomains
-allowed_origins.append("https://deepscan-ai-frontend.vercel.app")
-allowed_origins.append("https://deepscan-ai-frontend-akshaybhawar03s-projects.vercel.app")
 CORS(app, origins=allowed_origins + ["*"])
 
 # ─── Configuration ────────────────────────────────────────────────────

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: deepscan-ai-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    envVars:
+      - key: HF_API_TOKEN
+        sync: false
+      - key: REALITY_DEFENDER_KEY
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11.0"
